@@ -1,0 +1,28 @@
+.cerchioOnline{
+    background-color: green!important;
+    color: white;
+}
+
+.cerchioOffline{
+    background-color: red!important;
+    color: orange;
+}
+
+.cerchio{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: blue;
+    margin-right: 10px;
+    text-align: center;
+}
+
+li{
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+li > p{
+    margin-bottom: 0;
+}
