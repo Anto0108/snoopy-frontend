@@ -1,0 +1,36 @@
+<mat-toolbar color="light">
+    <mat-toolbar-row>
+        <span> <img mat-card-image routerLink="" src="../../../assets/images/logo.jpg" draggable="false" width="10%" height="10%" alt="Photo of a Shiba Inu"></span>
+        
+        <a [routerLink]="['/about']" mat-button>Su di noi</a>
+        <a [routerLink]="['/contact']" mat-button>Contatti</a>
+        <a [routerLink]="['/service']" mat-button>Servizi</a>            
+
+        <div class="right-actions">
+            <button *ngIf="getToken(); else bloccoElse" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [matMenuTriggerFor]="menu">
+                <mat-icon>menu</mat-icon>
+            </button>
+            
+            <mat-menu #menu="matMenu" [ngSwitch]="perm">
+                <div *ngSwitchCase="'admin'">
+                    <button mat-menu-item>Dashboard Amministratore</button>
+                </div>
+
+                <div *ngSwitchCase="'personal_trainer'">
+                    <button mat-menu-item>Dashboard PT</button>
+                </div>
+
+                <div *ngSwitchCase="'secretary'">
+                    <button mat-menu-item>Dashboard Segretarie</button>
+                </div>
+                <button mat-menu-item (click)="logout()">Logout</button>
+            </mat-menu>
+
+            <ng-template #bloccoElse>
+                <button (click)="redirectLogin()" class="my-button" mat-raised-button>Login</button>
+                <button (click)="redirectSignUp()" class="my-button" mat-raised-button color="primary">Sign-up</button>
+            </ng-template>
+
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,51 @@
+.carousel-container {
+    position: relative;
+    width: 100vw; 
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    overflow: hidden; 
+}
+
+mat-card {
+    display: none;
+    transition: opacity 0.5s;
+    width: 100%; 
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+mat-card.active {
+    display: flex; 
+    justify-content: center;
+    opacity: 1;
+}
+
+mat-card img{
+    max-height: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.prev-btn {
+    left: 20%;
+}
+
+.next-btn {
+    right: 20%;
+}
+
+.button-container-left{
+    background-color: black;
+}
+
+.button-container-right{
+    border: 2px solid black;
+    background-color: black;
+}

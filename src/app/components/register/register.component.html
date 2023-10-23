@@ -1,0 +1,72 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <h1>Registrati</h1>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <mat-form-field class="form-input">
+                    <mat-label>Inserisci il tuo nome</mat-label>
+                    <input matInput placeholder="Mario" formControlName="name">
+                </mat-form-field>
+            </div>
+            
+            <div class="col d-flex justify-content-center">
+                <mat-form-field class="form-input">
+                    <mat-label>Inserisci il tuo cognome</mat-label>
+                    <input matInput placeholder="Rossi" formControlName="surname">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <mat-form-field class="form-input">
+                    <mat-label>Inserisci la tua email</mat-label>
+                    <input matInput placeholder="pat@example.com" formControlName="email">
+                </mat-form-field>
+            </div>
+
+            <div class="col d-flex justify-content-center">
+                <mat-form-field class="form-input">
+                    <mat-label>Inserisci il numero di telefono</mat-label>
+                    <input matInput type="tel" placeholder="333 4445556667" formControlName="phone">
+                </mat-form-field>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <mat-form-field class="form-input">
+                    <mat-label>Inserisci la password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+
+            <div class="col d-flex justify-content-center">
+                <mat-form-field class="form-input">
+                    <mat-label>Ripeti la password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="repeatPassword">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+        </div>
+    
+        <div class="row justify-content-center">
+            <div class="col-6 d-flex justify-content-center">
+                <button mat-raised-button type="submit">Registrati</button>
+            </div>
+        </div>
+    </form>
+</div>

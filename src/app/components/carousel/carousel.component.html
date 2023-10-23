@@ -1,0 +1,14 @@
+<div class="carousel-container">
+    <mat-card *ngFor="let image of images; let i = index" 
+              [ngClass]="{'active': i === activeIndex}">
+        <img mat-card-image [src]="image" draggable="false">
+    </mat-card>
+
+    <button mat-icon-button (click)="previousImage()" class="nav-btn prev-btn">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+
+    <button mat-icon-button (click)="nextImage()" class="nav-btn next-btn">
+        <mat-icon>arrow_forward</mat-icon>
+    </button>
+</div>

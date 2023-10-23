@@ -1,0 +1,29 @@
+.carousel-container {
+    position: relative;
+    max-width: 300px; 
+}
+
+mat-card {
+    display: none;
+    transition: opacity 0.5s;
+}
+
+mat-card.active {
+    display: block;
+    opacity: 1;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
