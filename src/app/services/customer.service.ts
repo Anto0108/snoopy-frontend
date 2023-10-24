@@ -42,7 +42,6 @@ export class CustomerService {
         
         if (authToken) {
           sessionStorage.setItem(TOKEN_NAME, authToken);
-          console.log(sessionStorage.getItem(TOKEN_NAME))
         }
         this.startTokenExpirationCheck();
         window.location.href = BASE_SITE_URL;
@@ -120,6 +119,6 @@ export class CustomerService {
         );
     }
     return of('');
-}
+  }
 
 }

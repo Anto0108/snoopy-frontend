@@ -32,10 +32,10 @@ export class RegisterComponent {
 
   getErrorMessage() {
     if (this.newEmail.hasError('required')) {
-      return 'You must enter a value';
+      return 'Devi inserire una mail.';
     }
 
-    return this.newEmail.hasError('email') ? 'Not a valid email' : '';
+    return this.newEmail.hasError('email') ? 'Mail non valida.' : '';
   }
 
   onSubmit() {

@@ -1,7 +1,7 @@
 .carousel-container {
     position: relative;
     width: 100vw; 
-    height: 40vh;
+    height: 45vh;
     display: flex;
     justify-content: center;
     overflow: hidden; 

@@ -29,6 +29,9 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { ServiceComponent } from './components/service/service.component';
 import { HomepageContentComponent } from './components/homepage-content/homepage-content.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { InfoComponent } from './components/info/info.component';
+import { NewPostComponent } from './components/new-post/new-post.component';
 
 
 export function tokenGetter() {
@@ -47,6 +50,9 @@ export function tokenGetter() {
     ContactsComponent,
     ServiceComponent,
     HomepageContentComponent,
+    FooterComponent,
+    InfoComponent,
+    NewPostComponent,
   ],
   imports: [
     BrowserModule,
