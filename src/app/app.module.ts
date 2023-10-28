@@ -19,6 +19,9 @@ import { FormsModule } from '@angular/forms';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTableModule} from '@angular/material/table';
+
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -32,7 +35,12 @@ import { HomepageContentComponent } from './components/homepage-content/homepage
 import { FooterComponent } from './components/footer/footer.component';
 import { InfoComponent } from './components/info/info.component';
 import { NewPostComponent } from './components/new-post/new-post.component';
-
+import { PostComponent } from './components/post/post.component';
+import { DatePipe } from '@angular/common';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { ActiveAccountComponent } from './components/active-account/active-account.component';
+import { DashboardAmministratoreComponent } from './components/dashboard-amministratore/dashboard-amministratore.component';
+import { DisattivaNewsletterComponent } from './components/disattiva-newsletter/disattiva-newsletter.component';
 
 export function tokenGetter() {
   return sessionStorage.getItem('token');
@@ -53,6 +61,11 @@ export function tokenGetter() {
     FooterComponent,
     InfoComponent,
     NewPostComponent,
+    PostComponent,
+    ErrorPageComponent,
+    ActiveAccountComponent,
+    DashboardAmministratoreComponent,
+    DisattivaNewsletterComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,9 +90,11 @@ export function tokenGetter() {
     FormsModule,
     MatDividerModule,
     MatProgressBarModule,
-    MatGridListModule
+    MatGridListModule,
+    MatCheckboxModule,
+    MatTableModule,
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -12,6 +12,12 @@
         </div>
     </div>
 
+    <div class="row" *ngIf="error">
+        <div class="col d-flex justify-content-center">
+            <h1 class="text-danger fw-bold text-uppercase">{{error}}</h1>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col d-flex justify-content-center">
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">

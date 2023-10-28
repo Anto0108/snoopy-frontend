@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Post } from 'src/app/model/post.model';
 import { AdminService } from 'src/app/services/admin.service';
+import { CustomerService } from 'src/app/services/customer.service';
 import { IMAGE_PATH } from 'src/app/utility/const'
 
 @Component({
@@ -8,28 +11,18 @@ import { IMAGE_PATH } from 'src/app/utility/const'
   styleUrls: ['./carousel.component.css']
 })
 export class CarouselComponent implements OnInit{
-
-  constructor(private adminService: AdminService){}
+  constructor(private adminService: AdminService, private router: Router, private customerService: CustomerService){}
 
   imagePath = IMAGE_PATH;
-
-  getAllPost(){
-    this.adminService.getAllPost().subscribe(posts => {
-      if (posts && Array.isArray(posts)) {
-        posts.forEach(post => {
-          console.log(post.id, post.postName, post.imageName, post.description);
-        });
-      } else {
-          console.log('Nessuna risposta valida ricevuta.');
-      }
-    });
-  }
-
+  posts: Post[] = [];
   images = [''];
+  postExist = false;
 
   ngOnInit(): void {
-    this.adminService.getAllPost().subscribe(posts => {
-      if (posts) {
+    this.customerService.getAllPost().subscribe(posts => {
+      if (posts && Array.isArray(posts) && posts.length !== 0) {
+        this.postExist = true;
+        this.posts = posts;
         this.images = posts.map(post => post.imageName); 
       }
     });
@@ -43,5 +36,9 @@ export class CarouselComponent implements OnInit{
 
   nextImage() {
     this.activeIndex = (this.activeIndex + 1) % this.images.length;
+  }
+
+  updateId(id: number){
+    this.router.navigate(['/post', id]);
   }
 }

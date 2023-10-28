@@ -1,0 +1,16 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+            <h1 *ngIf="!error; else bloccoElse">Il tuo account è stato attivato</h1>
+            <ng-template #bloccoElse>
+                <h1>{{error}}</h1>
+            </ng-template> 
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+            <p>Sarai reindirizzato nella homepage tra {{timer}}</p>
+        </div>
+    </div>
+</div>

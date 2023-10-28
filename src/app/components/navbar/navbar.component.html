@@ -13,7 +13,7 @@
             
             <mat-menu #menu="matMenu" [ngSwitch]="perm">
                 <div *ngSwitchCase="'admin'">
-                    <button mat-menu-item>Dashboard Amministratore</button>
+                    <button mat-menu-item [routerLink]="['/dashboard-amministratore']">Dashboard Amministratore</button>
                     <button mat-menu-item [routerLink]="['/nuovo-post']">Aggiungi un post</button>
                 </div>
 

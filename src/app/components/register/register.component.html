@@ -15,6 +15,12 @@
         
         <div class="row">
             <div class="col d-flex justify-content-center">
+                <h1 class="text-danger fw-bold text-uppercase">{{error}}</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col d-flex justify-content-center">
                 <mat-form-field class="form-input">
                     <mat-label>Inserisci il tuo nome</mat-label>
                     <input matInput placeholder="Mario" formControlName="name">
@@ -66,7 +72,13 @@
                 </mat-form-field>
             </div>
         </div>
-    
+        
+        <div class="row justify-content-center">
+            <div class="col d-flex justify-content-center">
+                <p><mat-checkbox formControlName="newsLetter">Clicca qui se vuoi ricevere le ultime novità via mail.</mat-checkbox></p>
+            </div>
+        </div>
+
         <div class="row justify-content-center">
             <div class="col-6 d-flex justify-content-center">
                 <button mat-raised-button type="submit">Registrati</button>

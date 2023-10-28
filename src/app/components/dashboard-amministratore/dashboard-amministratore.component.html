@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+
+<div class="container" style="margin-top: 10vh;">
+    <div class="row">
+        <div class="col d-flex justfy-content-center">
+            <h1 class="fw-bold">Riepilogo di tutti i post</h1>
+        </div>
+    </div>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="postName">
+          <th mat-header-cell *matHeaderCellDef> Nome Post </th>
+          <td mat-cell *matCellDef="let element"> {{element.postName}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="numberOfComment">
+          <th mat-header-cell *matHeaderCellDef> Numero di commenti </th>
+          <td mat-cell *matCellDef="let element"> {{getCommentListLength(element)}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Azioni </th>
+            <td mat-cell *matCellDef="let element">
+              <button class="me-2" mat-raised-button (click)="editPost(element); $event.stopPropagation();">Modifica</button>
+              <button mat-raised-button (click)="deletePost(element); $event.stopPropagation();" color="warn">Elimina</button>
+            </td>
+          </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClicked(row)"></tr>
+    </table>
+</div>

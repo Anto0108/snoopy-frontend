@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { CustomerService } from 'src/app/services/customer.service';
+import { BASE_SITE_URL } from 'src/app/utility/const';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
-  });
+    });
   }
 
   get email() {
@@ -31,6 +32,8 @@ export class LoginComponent {
     return this.newEmail.hasError('email') ? 'Mail non valida.' : '';
   }
 
+
+  error: string | null = null;
   onSubmit() {
 
     const customer = {
@@ -38,7 +41,15 @@ export class LoginComponent {
       password: this.loginForm.get('password')?.value
     }
 
-    this.customerService.loginCustomer(customer);
+    this.customerService.loginCustomer(customer).subscribe(result => {
+      if (result) {
+        window.location.href = BASE_SITE_URL;
+      }
+    },
+    error => {
+      this.error = error.error.error;
+      console.log(this.error);
+    });
   }
 
 }

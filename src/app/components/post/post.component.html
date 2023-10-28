@@ -1,0 +1,84 @@
+<app-navbar></app-navbar>
+<br>
+<br>
+<br>
+<br>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h1>{{postName}}</h1>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+            <img class="img-fluid img-thumbnail" [src]="imagePath + imageName" style="height: 40vh;" draggable="false" alt="post_image">
+        </div>
+    </div>
+
+    <div class="row mt-5 mb-4">
+        <div class="col shadow p-3 mb-5 bg-body-tertiary rounded">
+            <p>{{description}} </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <p class="text-danger fw-bold fs-4 text-uppercase" *ngIf="token === null">Devi fare l'accesso per poter commentare.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <h4><strong>Lascia un commento</strong></h4>
+        </div>
+    </div>
+
+    <div class="row" [style.filter]="token === null ? 'blur(1.3px)' : 'none'">
+        <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+            <div class="row mb-3">
+                <div class="col d-flex align-items-center">
+                    <mat-form-field class="mt-3" style="width: 20vw;">
+                        <input matInput formControlName="comment" [disabled]="token === null" required>
+                    </mat-form-field>
+    
+                    <button mat-raised-button type="submit" class="ms-3" [disabled]="token === null">Commenta</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <div class="row" [style.filter]="token === null ? 'blur(1.3px)' : 'none'" *ngIf="commentIsPresent">
+        <div class="row mb-2">
+            <div class="col-2">
+                <p class="mt-2"></p>
+            </div>
+            
+            <div class="col">
+                <p class="mt-2"></p>
+            </div>
+            
+            <div class="col-2 ms-3">  
+                <p class="mt-2 text-uppercase fw-bold">Data invio commento</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" [style.filter]="token === null ? 'blur(1.3px)' : 'none'" *ngIf="commentIsPresent">
+        <div class="row mb-2" *ngFor="let comment of commentArrayForPost">
+            <div class="col-2">
+                <p class="mt-2">{{comment.name}} {{comment.surname}}:</p>
+            </div>
+            
+            <div class="col">
+                <p class="mt-2">{{comment.commentText}}</p>
+            </div>
+            
+            <div class="col-2 ms-3">  
+                <p class="mt-2">{{comment.creationDate}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

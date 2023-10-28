@@ -5,3 +5,4 @@ export const TOKEN_NAME = 'token';
 export const BASE_SITE_URL = 'http://localhost:4200';
 export const BEARER = 'Bearer ';
 export const IMAGE_PATH = '../../../assets/images/';
+export const ROLE_ADMIN = 'admin';
